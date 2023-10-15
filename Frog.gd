@@ -27,6 +27,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func death():
+	Game.playerGold += 2
+	Utilities.saveGame()
 	chase = false
 	get_node("AnimatedSprite2D").play("death")
 	await get_node("AnimatedSprite2D").animation_finished
@@ -51,5 +53,5 @@ func _on_player_death_body_exited(body):
 
 func _on_player_collision_body_entered(body):
 	if body.name == "Player":
-		body.health -= 3
+		Game.playerHP -= 3
 		death()

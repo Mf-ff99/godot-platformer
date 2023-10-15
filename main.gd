@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	Utilities.loadGame()
+	Utilities.saveGame()
 
 func _on_quit_pressed():
 	get_tree().quit()
